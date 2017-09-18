@@ -1,4 +1,8 @@
-import java.util.Arrays;
+// https://leetcode.com/problems/two-sum-iv-input-is-a-bst/solution/
+
+
+import java.util.*;
+
 
 public class bst_search {
 
@@ -15,7 +19,9 @@ public class bst_search {
 		root.setLeftNode(node3);
 		root.setRightNode(node6);
 
-		System.out.println(findTarget(root, 28));
+		// System.out.println(findTarget(root, 28));
+
+		System.out.println(bstToList(root));
 
 	}
 
@@ -54,6 +60,20 @@ public class bst_search {
  		}
  	}
 
+ 	static List<Integer> bstToList(TreeNode root) {
+ 		List<Integer> result = new ArrayList<Integer>();
+ 		addAllElementsToList(root, result);
+ 		return result;
+ 	}
+
+ 	static void addAllElementsToList(TreeNode root, List<Integer> list) {
+ 		if (root == null) {
+ 			return;
+ 		}
+ 		list.add(root.val);
+ 		addAllElementsToList(root.left, list);
+ 		addAllElementsToList(root.right, list);
+ 	}
 }
 
 
